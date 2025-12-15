@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { InvestmentService } from './../investment.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FormModule } from './form.module';
 
@@ -16,8 +17,10 @@ export class FormComponent {
   expectedReturn = 0;
   duration = 0;
 
+  constructor(private investmentService: InvestmentService) {}  
+
   onSubmit() {
-    this.investmentInfo.emit({
+    this.investmentService.calculateInvestmentResults({
       initialValue: +this.initialValue,
       annualInvestment: +this.annualInvestment,
       expectedReturn: +this.expectedReturn,
