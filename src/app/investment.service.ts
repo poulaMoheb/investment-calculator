@@ -1,16 +1,17 @@
-import { Injectable } from "@angular/core";
+import { Injectable, signal } from "@angular/core";
 import type { FormModule } from "./form/form.module";
 
 @Injectable({providedIn: 'root' })
 export class InvestmentService{
-      resultsData?: {
+    resultsData = signal<{ 
       year: number,
       interest: number,
       valueEndOfYear: number,
-      annualInvestment: number,
+      annualInvestment: number, 
       totalInterest: number,
-      totalAmountInvested: number,
-    }[];
+      totalAmountInvested: number
+    }[] | undefined>(undefined);
+
     calculateInvestmentResults(enteredData: FormModule){
         const annualData = [];
         let investmentValue = enteredData.initialValue;
@@ -30,6 +31,6 @@ export class InvestmentService{
             totalAmountInvested: enteredData.initialValue + enteredData.annualInvestment * year,
             });
         }
-        this.resultsData = annualData;
+        this.resultsData.set(annualData);
     }
 }
