@@ -1,4 +1,5 @@
 <div>
     <app-header/>
-    <app-form/>
+    <app-form (investmentInfo)="onCalculateInvestmentResults($event)"/>
+    <app-investment-results [investmentDetails]="resultsData"/>
 </div>

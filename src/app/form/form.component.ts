@@ -18,10 +18,10 @@ export class FormComponent {
 
   onSubmit() {
     this.investmentInfo.emit({
-      initialValue: this.initialValue,
-      annualInvestment: this.annualInvestment,
-      expectedReturn: this.expectedReturn,
-      duration: this.duration,
+      initialValue: +this.initialValue,
+      annualInvestment: +this.annualInvestment,
+      expectedReturn: +this.expectedReturn,
+      duration: +this.duration,
     });
   }
 }
