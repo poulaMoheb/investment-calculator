@@ -1,17 +1,14 @@
 import { Component, output, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { FormModule } from './form.module';
+import { userInputModule } from './user-input.module';
 import { InvestmentService } from '../investment.service';
 
 @Component({
   selector: 'app-form',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './form.component.html',
   styleUrl: './form.component.css'
 })
 export class FormComponent {
-  investmentInfo = output<FormModule>();
+  investmentInfo = output<userInputModule>();
   initialValue = signal('0');
   annualInvestment = signal('0');
   expectedReturn = signal('5');

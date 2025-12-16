@@ -1,5 +1,5 @@
 import { Injectable, signal } from "@angular/core";
-import type { FormModule } from "./form/form.module";
+import type { userInputModule } from "./form/user-input.module";
 
 @Injectable({providedIn: 'root' })
 export class InvestmentService{
@@ -12,7 +12,7 @@ export class InvestmentService{
       totalAmountInvested: number
     }[] | undefined>(undefined);
 
-    calculateInvestmentResults(enteredData: FormModule){
+    calculateInvestmentResults(enteredData: userInputModule){
         const annualData = [];
         let investmentValue = enteredData.initialValue;
 

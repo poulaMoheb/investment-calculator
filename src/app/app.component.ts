@@ -1,19 +1,14 @@
-import { Component, signal } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { FormComponent } from './form/form.component';
-import { FormModule } from './form/form.module';
-import { InvestmentResultsComponent } from "./investment-results/investment-results.component";
+import { Component } from '@angular/core';
+import { userInputModule } from './form/user-input.module';
 import { InvestmentService } from './investment.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [HeaderComponent, FormComponent, InvestmentResultsComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
   constructor(private investmentService: InvestmentService) {}
-  onCalculateInvestmentResults(enteredData: FormModule) {
+  onCalculateInvestmentResults(enteredData: userInputModule) {
     this.investmentService.calculateInvestmentResults(enteredData);
 }
 }
